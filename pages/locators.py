@@ -23,3 +23,10 @@ class ProductPageLocators:
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+
+class BasketPageLocators:
+    BASKET_BUTTON = (By.CSS_SELECTOR, '[href = "/en-gb/basket/"]')
+    BASKET_PAGE_LINK = "selenium1py.pythonanywhere.com/basket/"
+    EMPTY_BASKET_MESSAGE = (By.XPATH, "//div[@id='content_inner']/p/text()")
+    BASKET_ITEMS = (By.CLASS_NAME, "basket-items")
