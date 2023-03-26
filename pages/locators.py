@@ -28,5 +28,5 @@ class BasePageLocators:
 class BasketPageLocators:
     BASKET_BUTTON = (By.CSS_SELECTOR, '[href = "/en-gb/basket/"]')
     BASKET_PAGE_LINK = "selenium1py.pythonanywhere.com/basket/"
-    EMPTY_BASKET_MESSAGE = (By.XPATH, "//div[@id='content_inner']/p/text()")
+    EMPTY_BASKET_MESSAGE = (By.XPATH, "//div[@id='content_inner']/p/a")
     BASKET_ITEMS = (By.CLASS_NAME, "basket-items")
