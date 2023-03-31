@@ -8,6 +8,9 @@ class MainPageLocators:
 class LoginPageLocators:
     LOGIN_FORM = (By.ID, "login_form")
     REGISTER_FORM = (By.ID, "register_form")
+    REGISTER_EMAIL = (By.ID, "id_registration-email")
+    REGISTER_PASSWORD = (By.ID, "id_registration-password1")
+    REGISTER_REPEAT_PASSWORD = (By.ID, "id_registration-password2")
 
 
 class ProductPageLocators:
