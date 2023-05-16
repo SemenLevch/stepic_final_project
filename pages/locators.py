@@ -11,6 +11,7 @@ class LoginPageLocators:
     REGISTER_EMAIL = (By.ID, "id_registration-email")
     REGISTER_PASSWORD = (By.ID, "id_registration-password1")
     REGISTER_REPEAT_PASSWORD = (By.ID, "id_registration-password2")
+    REGISTER_BTN = (By.CSS_SELECTOR, '[name="registration_submit"]')
 
 
 class ProductPageLocators:
@@ -34,3 +35,4 @@ class BasketPageLocators:
     BASKET_PAGE_LINK = "selenium1py.pythonanywhere.com/basket/"
     EMPTY_BASKET_MESSAGE = (By.XPATH, "//div[@id='content_inner']/p/a")
     BASKET_ITEMS = (By.CLASS_NAME, "basket-items")
+

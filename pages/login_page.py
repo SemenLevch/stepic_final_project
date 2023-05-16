@@ -25,3 +25,5 @@ class LoginPage(BasePage):
         register_password_field.send_keys(password)
         register_repeat_password_field = self.browser.find_element(*LoginPageLocators.REGISTER_REPEAT_PASSWORD)
         register_repeat_password_field.send_keys(password)
+        register_btn = self.browser.find_element(*LoginPageLocators.REGISTER_BTN)
+        register_btn.click()
