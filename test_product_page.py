@@ -7,7 +7,7 @@ from .pages.locators import BasketPageLocators
 from .pages.login_page import LoginPage
 
 
-@pytest.mark.skip
+@pytest.mark.need_review
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
@@ -60,6 +60,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_link()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
@@ -67,6 +68,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.go_to_login_page()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = ProductPage(browser, link)
@@ -78,30 +80,30 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page.should_be_empty_basket_message()
 
 
-class TestUserAddToBasketFromProductPage():
+class TestUserAddToBasketFromProductPage:
 
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         reg_page_link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
         register_page = LoginPage(browser, reg_page_link)
         register_page.open()
-        email= str(time.time()) + "@fakemail.org"
+        email = str(time.time()) + "@fakemail.org"
         password = "Jamal228000"
         register_page.register_new_user(email, password)
         register_page.should_be_authorized_user()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         url = ProductPageLocators.URL
         product_page = ProductPage(browser, url)
         product_page.open()
         product_page.should_be_basket_btn()
         product_page.add_to_basket()
-        #product_page.solve_quiz_and_get_code()
         product_page.should_be_message_product_add_to_basket()
         product_page.should_be_messsage_about_basket_price()
         time.sleep(5)
 
-    def test_guest_cant_see_success_message(self, browser):
+    def test_user_cant_see_success_message(self, browser):
         url = ProductPageLocators.URL
         product_page = ProductPage(browser, url)
         product_page.open()
